@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const plumber = require('gulp-plumber');
 const sourcemap = require('gulp-sourcemaps');
-const sass = require('gulp-sass');
+const less = require('gulp-less');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const server = require('browser-sync').create();
@@ -36,10 +36,10 @@ const html = () => {
 };
 
 const css = () => {
-  return gulp.src('source/sass/style.scss')
+  return gulp.src('source/less/style.less')
       .pipe(plumber())
       .pipe(sourcemap.init())
-      .pipe(sass())
+      .pipe(less())
       .pipe(postcss([autoprefixer({
         grid: true,
       })]))
@@ -82,7 +82,6 @@ const sprite = () => {
 const syncServer = () => {
   server.init({
     server: 'build/',
-    index: 'sitemap.html',
     notify: false,
     open: true,
     cors: true,
@@ -90,7 +89,7 @@ const syncServer = () => {
   });
 
   gulp.watch('source/html/**/*.html', gulp.series(html, refresh));
-  gulp.watch('source/sass/**/*.{scss,sass}', gulp.series(css));
+  gulp.watch('source/less/**/*.less', gulp.series(css));
   gulp.watch('source/js/**/*.{js,json}', gulp.series(js, refresh));
   gulp.watch('source/data/**/*.{js,json}', gulp.series(copy, refresh));
   gulp.watch('source/img/**/*.svg', gulp.series(copySvg, sprite, html, refresh));
@@ -146,7 +145,7 @@ const clean = () => {
 // root = `content/` - webp добавляются и обновляются только в source/img/content/
 
 const createWebp = () => {
-  const root = ``;
+  const root = 'content/';
   return gulp.src(`source/img/${root}**/*.{png,jpg}`)
     .pipe(webp({quality: 90}))
     .pipe(gulp.dest(`source/img/${root}`));

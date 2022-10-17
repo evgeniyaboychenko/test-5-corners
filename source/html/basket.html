@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+  @@include("source/html/base/head.html")
+  <title>ProjectName — Главная</title>
+
+</head>
+<body>
+
+  <div style="display: none;">
+    @@include("build/img/sprite_auto.svg")
+  </div>
+
+  <div class="wrapper">
+    @@include("source/html/base/header.html", {
+      "basket": true
+    })
+
+    <main>
+      <div class="container">
+        <ul class="breadcrumbs">
+          <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="index.html">Главная</a>
+          <li class="breadcrumbs__item-current">
+            <a class="breadcrumbs__link">Корзина</a>
+          </li>
+        </ul>
+
+        <div class="basket">
+          <h1 class="title title--h1">Корзина</h1>
+          <form>
+
+
+          </form>
+          <section class="products">
+            <h2 class="title title--h2">Выбранные товары:</h2>
+            <ul class="products__list">
+              <li class="products__item">
+                <div class="products__img">
+                  <picture>
+                    <source type="image/webp" srcset="img/content/product.webp 1x, img//producte@2x.webp 2x">
+                    <img class="promo__image" src="img/content/product.jpg" srcset="img/content/product@2x.jpg 2x" width="150" height="150" alt="Изображение  товара">
+                  </picture>
+                </div>
+                <h3 class="title title--h3 products__title">Товар 1</h3>
+                <p class="products__description">Описание товара, которое может быть длинным</p>
+                <div class="products__count">
+                  <button>-
+                  </button>
+                  <span>1</span>
+                  <button>+
+                  </button>
+                </div>
+                <span class="products__price">1000p</span>
+                <button class="products__btn-del">Удалить</button>
+              </li>
+            </ul>
+          </section>
+          <a class="button" href="#">Купить</a>
+        </div>
+      </div>
+
+
+    </main>
+
+    @@include("source/html/base/footer.html")
+  </div>
+
+  <script src="js/vendor.min.js"></script>
+  <script src="js/main.min.js"></script>
+</body>
+</html>

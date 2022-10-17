@@ -1,0 +1,36 @@
+.user-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  display: flex;
+  align-items: flex-end;
+  margin-left: auto;
+
+}
+
+.user-menu__item {
+  position: relative;
+  margin-right: 20px;
+
+  &:last-child {
+    margin-right: 0;
+   }
+}
+
+.user-menu__count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  right: 0;
+  background-color: @color-black;
+  color: @color-white;
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 14px;
+}
+

@@ -1,0 +1,39 @@
+.breadcrumbs {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 30px;
+  list-style: none;
+
+  display: flex;
+}
+
+.breadcrumbs__item {
+  position: relative;
+  margin-right: 26px;
+  color: @color-nobel;
+
+  &::after {
+    position: absolute;
+    content: '/';
+    top: 0;
+    right: 0;
+    margin-right: -16px;
+    color: @color-nobel;
+  }
+
+  .breadcrumbs__link {
+    color: @color-nobel;
+  }
+}
+
+
+
+.breadcrumbs__item-current {
+  margin-right: 0;
+  color: @color-black;
+
+  &::after {
+    position: absolute;
+    content: none;
+    }
+}

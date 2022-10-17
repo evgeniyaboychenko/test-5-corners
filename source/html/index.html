@@ -13,30 +13,17 @@
   </div>
 
   <div class="wrapper">
-    <-- для внутренних страниц используйте "headerActiveLinkIndex": 0\1\2 --> 
     @@include("source/html/base/header.html", {
       "index": true
     })
 
     <main>
       <div class="container">
-        <p><a href="#" data-open-modal="feedback">modal--feedback link</a></p>
-        <p><a href="#" data-open-modal="success">modal--success link</a></p>
+        <h1>Главная страница</h1>
       </div>
     </main>
 
     @@include("source/html/base/footer.html")
-
-    @@include("source/html/base/modal.html", {
-      "name": "feedback"
-    })
-
-    @@include("source/html/base/modal.html", {
-      "name": "success",
-      "fitContent": true,
-      "noScale": true,
-      "mod": "some-mod"
-    })
   </div>
 
   <script src="js/vendor.min.js"></script>
