@@ -12,14 +12,14 @@
 
       <ul class="user-menu">
         <li class="user-menu__item">
-          <a class="user-menu__link"></a>
+          <a class="user-menu__link links links--black">
             <svg width="24" height="27">
               <use xlink:href="#icon-auth"></use>
             </svg>
           </a>
         </li>
         <li class="user-menu__item">
-          <a class="user-menu__link">
+          <a class="user-menu__link links links--black">
             <svg width="30" height="27">
               <use xlink:href="#icon-favorites"></use>
             </svg>
@@ -27,7 +27,7 @@
         </li>
         <li class="user-menu__item">
           @@if (!context.basket) {
-            <a class="user-menu__link" href="basket.html">
+            <a class="user-menu__link links links--black" href="basket.html">
               <svg width="32" height="30">
                 <use xlink:href="#icon-basket"></use>
               </svg>
@@ -72,13 +72,13 @@
       </button>
       <ul class="main-nav__list">
         <li class="main-nav__item">
-          <a class="main-nav__link"href="#">Страница 1</a>
+          <a class="links"href="#">Страница 1</a>
         </li>
         <li class="main-nav__item">
-          <a class="main-nav__link" href="#">Страница 2</a>
+          <a class="links" href="#">Страница 2</a>
         </li>
         <li class="main-nav__item">
-          <a class="main-nav__link" href="#">Страница 3</a>
+          <a class="links" href="#">Страница 3</a>
         </li>
         <li class="main-nav__item main-nav__item--logo">
           @@if (!context.index) {
@@ -97,13 +97,13 @@
           }
         </li>
         <li class="main-nav__item">
-          <a class="main-nav__link"href="#">Страница 4</a>
+          <a class="links"href="#">Страница 4</a>
         </li>
         <li class="main-nav__item">
-          <a class="main-nav__link" href="#">Страница 5</a>
+          <a class="links" href="#">Страница 5</a>
         </li>
         <li class="main-nav__item">
-          <a class="main-nav__link" href="#">Страница 6</a>
+          <a class="links" href="#">Страница 6</a>
         </li>
       </ul>
     </nav>

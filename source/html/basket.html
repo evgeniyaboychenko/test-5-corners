@@ -21,7 +21,7 @@
       <div class="container">
         <ul class="breadcrumbs">
           <li class="breadcrumbs__item">
-            <a class="breadcrumbs__link" href="index.html">Главная</a>
+            <a class="links" href="index.html">Главная</a>
           <li class="breadcrumbs__item-current">
             <a class="breadcrumbs__link">Корзина</a>
           </li>
@@ -29,45 +29,160 @@
 
         <div class="basket">
           <h1 class="title title--h1">Корзина</h1>
-          <form>
+          <div class="basket__authorization">
+            <span>Есть аккаунт?</span>
+            <a class="links links--underline"  href="#">Войти</a>
+          </div>
+
+          <form method="post" autocomplete="off" class="basket__form">
+            <div id ="summary"></div>
+            <div class="basket__form-wrapper">
+              <fieldset class="basket__fieldset">
+                <!-- <div class="basket__input">
+                  <input type="text" id="suggest" name="address" id="address" required >
+                  <label class="basket__input-label" for="address" data-placeholder>Адрес</label>
+                </div>
+                <div class="basket__input-error" id="notice">Ошибка ввода</div> -->
+
+                <label class="basket__input-label">
+                  <input class="basket__input" type="text" id="suggest" name="address" required>
+                  <!-- <div id="suggest-error" class="error">Ошибка вводddа</div> -->
+                  <div class="basket__input-error error" id="notice">Ошибка ввода</div>
+                  <span class="basket__input-placeholder" data-placeholder>Адрес</span>
+                </label>
+                <!-- <div class="basket__input-error" id="notice">Ошибка ввода</div> -->
+              </fieldset>
+
+              <div class="basket__map" id="map"></div>
+
+              <fieldset class="basket__fieldset">
+                <label class="basket__input-label">
+                  <input type="text" name="name" id="name" minlength="2" required>
+                  <span class="basket__input-placeholder" data-placeholder> Ваше имя</span>
+                </label>
+              </fieldset>
+
+              <fieldset class="basket__fieldset">
+                <label class="basket__input-label">
+                  <input type="tel" name="phone" id="phone" required>
+                  <span class="basket__input-placeholder" data-placeholder>Ваш телефон</span>
+                </label>
+              </fieldset>
+
+              <fieldset class="basket__fieldset">
+                <label class="basket__input-label">
+                 <input type="email" name="email" id="email" required>
+                 <span class="basket__input-placeholder" data-placeholder>Ваш email</span>
+                </label>
+              </fieldset>
+              <!-- <button type="submit" id="button">Проверить</button> -->
+              <!-- <fieldset class="basket__fieldset">
+                <label>
+                  <input type="text" class="input" id="suggest" data-address required>
+                  <span class="custom-input__label"> Адрес </span>
+                </label>
+                <div class="input__error">Ошибка ввода</div>
+              </fieldset> -->
+              <fieldset class="basket__fieldset basket__fieldset-select">
+                <!-- <input type="text" value="" name="select-type" class="basket__selected-type visually-hidden" required > -->
+                <button class="basket__select-button" data-button-select>
+                  <span class="basket__select-title">Тип упаковки</span>
+                  <span class="basket__select-icon">
+                    <svg width="16" height="9">
+                      <use xlink:href="#icon-select"></use>
+                    </svg>
+                  </span>
+                </button>
+                <!-- <label class="basket__input-label">
+                  <input type="text" value="" name="selectValue" class="basket__selected-value visually-hidden" required >
+                </label> -->
+                <span class="basket__input-placeholder" data-placeholder>Тип упаковки</span>
+                <input type="text" value="" name="selectValue" class="basket__selected-value visually-hidden" required >
+                <div class="basket__select" data-select>
+                  <input id="packagingType1" type="radio" value="no-packaging" name="packagingType"/>
+                  <label class="basket__select-option" for="packagingType1">без упаковки</label>
+                  <input id="packagingType2" type="radio" value="standart" name="packagingType"/>
+                  <label class="basket__select-option" for="packagingType2">стандартная</label>
+                  <input id="packagingType3" type="radio" value="gift" name="packagingType"/>
+                  <label class="basket__select-option" for="packagingType3">подарочная</label>
+                </div>
+                <!-- <select id="select" name="type">
+                  <option>Тип упаковки</option>
+                  <option value="no-packaging">без упаковки</option>
+                  <option value="standart">стандартная</option>
+                  <option value="gift">подарочная</option>
+                </select> -->
+                <!-- <select class="select" name="language">
+                  <option disabled>Выбрать</option>
+                  <option value="HTML">HTML</option>
+                  <option value="JavaScript">JavaScript</option>
+                  <option value="PHP">PHP</option>
+              </select> -->
+              </fieldset>
+              <fieldset class="basket__fieldset">
+                <label class="basket__input-label">
+                  <input type="text" class="basket__input" name="comment">
+                  <span class="basket__input-placeholder" data-placeholder>Введите комментарий</span>
+                </label>
+              </fieldset>
+
+            </div>
 
 
+
+            <section class="products">
+              <h2 class="title title--h2">Выбранные товары:</h2>
+              <ul class="products__list">
+                <li class="products__item">
+                  <div class="products__img">
+                    <picture>
+                      <source type="image/webp" srcset="img/content/product.webp 1x, img//producte@2x.webp 2x">
+                      <img class="promo__image" src="img/content/product.jpg" srcset="img/content/product@2x.jpg 2x" width="150" height="150" alt="Изображение  товара">
+                    </picture>
+                  </div>
+                  <h3 class="title title--h3 products__title">Товар 1</h3>
+                  <p class="products__description">Описание товара, которое может быть длинным</p>
+                  <div class="products__count">
+                    <button>-
+                    </button>
+                    <span>1</span>
+                    <button>+
+                    </button>
+                  </div>
+                  <span class="products__price">1000p</span>
+                  <button class="products__btn-del links links--underline">Удалить</button>
+                </li>
+              </ul>
+            </section>
+            <button type="submit" class="button" href="#">Купить</button>
           </form>
-          <section class="products">
-            <h2 class="title title--h2">Выбранные товары:</h2>
-            <ul class="products__list">
-              <li class="products__item">
-                <div class="products__img">
-                  <picture>
-                    <source type="image/webp" srcset="img/content/product.webp 1x, img//producte@2x.webp 2x">
-                    <img class="promo__image" src="img/content/product.jpg" srcset="img/content/product@2x.jpg 2x" width="150" height="150" alt="Изображение  товара">
-                  </picture>
-                </div>
-                <h3 class="title title--h3 products__title">Товар 1</h3>
-                <p class="products__description">Описание товара, которое может быть длинным</p>
-                <div class="products__count">
-                  <button>-
-                  </button>
-                  <span>1</span>
-                  <button>+
-                  </button>
-                </div>
-                <span class="products__price">1000p</span>
-                <button class="products__btn-del">Удалить</button>
-              </li>
-            </ul>
-          </section>
-          <a class="button" href="#">Купить</a>
         </div>
       </div>
 
 
+
+      <div id="header">
+        <input type="text" id="suggestе" class="input" placeholder="Введите адрес">
+        <button type="submit" id="button">Проверить</button>
+    </div>
+    <!-- <p id="notice">Адрес не найден</p> -->
+    <!-- <div id="map"></div> -->
+    <div id="footer">
+        <div id="messageHeader"></div>
+        <div id="message"></div>
+    </div>
+    <!-- <div id="map"></div> -->
     </main>
 
     @@include("source/html/base/footer.html")
   </div>
 
+  <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=577e5073-fd65-40de-9ae0-741804857cba&lang=ru_RU" type="text/javascript"></script>
+  <!-- <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=577e5073-fd65-40de-9ae0-741804857cba" type="text/javascript"></script> -->
+
 </body>
 </html>

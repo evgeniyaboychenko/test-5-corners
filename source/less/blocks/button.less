@@ -1,30 +1,31 @@
-// .button {
-//   display: block;
-//   box-sizing: border-box;
-//   margin: 0;
-//   padding: 10px 5px;
-//   border: none;
-//   font-family: "Arial", sans-serif;
-//   font-size: 16px;
-//   line-height: 20px;
-//   font-weight: 400;
-//   text-transform: uppercase;
-//   text-align: center;
-//   vertical-align: middle;
-//   color: @c-white;
-//   background-color: @btnc-green;
-//   cursor: pointer;
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 
-//   &:hover,
-//   &:focus {
-//     background-color: #5eaa2f;
-//   }
+  margin: 0;
+  padding: 10px 5px;
+  border: none;
+  font-family: @ff-helvetica;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  color: @color-black;
+  background-color:  @color-white;
+  cursor: pointer;
+  border: 1px solid @color-black;
 
-//   &:active {
-//     color: rgba(255, 255, 255, 0.3);
-//     background-color: #5eaa2f;
-//   }
-// }
+  &:hover,
+  &:focus {
+    color: @color-white;
+    background-color: @color-black;
+  }
+
+  // &:active {
+  //   color: rgba(255, 255, 255, 0.3);
+  //   background-color: #5eaa2f;
+  // }
+}
 
 // .button--grey {
 //   color: @c-grey;

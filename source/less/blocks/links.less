@@ -1,6 +1,35 @@
-// .links {
-//   background-color: @bc-grey;
-// }
+.links {
+  border: none;
+  border-radius: 0;
+  background-color: @color-transparent;
+
+  color: @color-nobel;
+
+  cursor: pointer;
+
+  &--underline {
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+  }
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
+
+  &:hover,
+  &:focus {
+      color: @color-black;
+  }
+
+  &--black {
+    color: @color-black;
+
+    &:hover,
+    &:focus {
+      color: @color-black-opacity;
+    }
+  }
+}
 
 // .links__wrapper {
 //   width: 280px;
