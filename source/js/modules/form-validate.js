@@ -43,8 +43,14 @@ const formValidate = () => {
     },
 
     submitHandler: function(form) {
-      const $dataForm = $(".basket__form").serializeArray();
-      console.log($dataForm);
+      // const $dataForm = $(".basket__form").serializeArray();
+      const formData = new FormData(form);
+      formData.delete('packagingType');
+
+      for (const [key, value] of formData) {
+        console.log(`${key}: ${value}\n`);
+      }
+
       resetSelect();
       form.reset();
       resetAddress();
