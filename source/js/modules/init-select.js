@@ -12,17 +12,17 @@ const initSelect = () => {
     $('[data-button-select]').removeClass('is-active');
   }
 
-  $('input[name="packagingType"]').click(function (evt) {
+  $('input[name="selectValue"]').click(function (evt) {
     evt.stopPropagation();
     $('[data-button-select] .basket__select-title').text($(this).find(' +.basket__select-option').text());
-    let selectValue = $(this).val();
-    $('.basket__selected-value').val(selectValue);
+    let packagingType = $(this).val();
+    $('.basket__selected-value').val(packagingType);
     $('[data-button-select]').focus();
     closeSelect();
   });
 
   $(document).click(function (evt) {
-    if (evt.target !== $('[data-button-select]') || evt.target !== $('input[name="packagingType"]')) {
+    if (evt.target !== $('[data-button-select]') || evt.target !== $('input[name="selectValue"]')) {
       closeSelect();
     }
   });

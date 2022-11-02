@@ -16,7 +16,7 @@ const formValidate = () => {
         required: true,
         email: true,
       },
-      selectValue: {
+      packagingType: {
         required: true,
       },
 
@@ -37,7 +37,7 @@ const formValidate = () => {
         required: 'Ошибка ввода',
         email: 'Неверный синтаксис email',
       },
-      selectValue: {
+      packagingType: {
         required: 'Ошибка ввода. Выберите тип упаковки',
       },
     },
@@ -45,7 +45,7 @@ const formValidate = () => {
     submitHandler: function(form) {
       // const $dataForm = $(".basket__form").serializeArray();
       const formData = new FormData(form);
-      formData.delete('packagingType');
+      formData.delete('selectValue');
 
       for (const [key, value] of formData) {
         console.log(`${key}: ${value}\n`);
@@ -75,7 +75,7 @@ const formValidate = () => {
     }
   });
 
-  $('input[name="packagingType"]').click(function () {
+  $('input[name="selectValue"]').click(function () {
     validateForm.element($('.basket__selected-value'));
   });
 
