@@ -82,6 +82,7 @@ const sprite = () => {
 const syncServer = () => {
   server.init({
     server: 'build/',
+    index: 'basket.html',
     notify: false,
     open: true,
     cors: true,

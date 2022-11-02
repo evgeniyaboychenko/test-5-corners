@@ -1,4 +1,5 @@
-// const mapContainer = document.querySelector('#map');
+
+import {changeTextareaHeight} from '../modules/change-textarea-height';
 
 const initMap = () => {
   const mapContainer = $('#map').get(0);
@@ -39,24 +40,7 @@ const initMap = () => {
     $('#suggest').val(address);
     $('#suggest').text(address);
 
-    $('textarea').height(0);
-    $('textarea').height($('textarea').get(0).scrollHeight);
-
-    if ($(window).height() > 1023) {
-      if ($('textarea').height() > 27) {
-        $('textarea').parent().css('height', '66px');
-      } else {
-        $('textarea').parent().css('height', '45px');
-      }
-    } else {
-      if ($('textarea').height() > 27) {
-        $('textarea').parent().css('height', '66px');
-      } else {
-        $('textarea').parent().css('height', '45px');
-      }
-    }
-
-    showMessage(address);
+    changeTextareaHeight();
   };
 
   const showError = (message) => {
@@ -91,11 +75,6 @@ const initMap = () => {
       placemark.geometry.setCoordinates(state.center);
       placemark.properties.set({iconCaption: caption, balloonContent: caption});
     }
-  };
-
-  const showMessage = (message) => {
-    $('#messageHeader').text('Данные получены:');
-    $('#message').text(message);
   };
 
   const geocode = () => {
@@ -136,7 +115,6 @@ const initMap = () => {
       // Если геокодер возвращает пустой массив или неточный результат, то показываем ошибку.
       if (error) {
         showError(error);
-        showMessage(hint);
       } else {
         showResult(obj);
       }
