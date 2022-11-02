@@ -1,112 +1,126 @@
 <header class="header">
   <div class="container">
-    <div class="header__top">
-      <form class="form-search" method="get" action="#">
-        <label for="searching" aria-label="Поиск">
-          <svg class="form-search__icon" width="27" height="27">
+    <div class="header__wrapper">
+      <div class="header__top">
+
+      <div class="search is-closed">
+        <button class="button button--empty search__toggle" type="button" aria-label="Переключатель отображения поиска">
+          <svg class="search__icon-open" width="27" height="27" aria-hidden="true">
             <use xlink:href="#icon-search"></use>
           </svg>
-        </label>
-        <input type="search" id="searching" name="searching" placeholder="Поиск">
-      </form>
+          <svg class="search__icon-close" width="20" height="20" aria-hidden="true">
+            <use xlink:href="#icon-close"></use>
+          </svg>
+        </button>
+        <form class="form-search" method="get" action="#">
+          <label for="searching" aria-label="Поиск">
+            <svg class="form-search__icon" width="27" height="27">
+              <use xlink:href="#icon-search"></use>
+            </svg>
+          </label>
+          <input type="search" id="searching" name="searching" placeholder="Поиск">
+        </form>
+        </div>
 
-      <ul class="user-menu">
-        <li class="user-menu__item">
-          <a class="user-menu__link links links--black">
-            <svg width="24" height="27">
-              <use xlink:href="#icon-auth"></use>
+
+        @@if (!context.index) {
+          <a class="header__logo header__logo--mobile" href="index.html" aria-label="Переход на главную">
+            <svg class="header__logo-icon" width="77" height="24">
+              <use xlink:href="#icon-logo-mob"></use>
             </svg>
           </a>
-        </li>
-        <li class="user-menu__item">
-          <a class="user-menu__link links links--black">
-            <svg width="30" height="27">
-              <use xlink:href="#icon-favorites"></use>
+        }
+        @@if (context.index) {
+          <span class="header__logo header__logo--mobile">
+            <svg class="header__logo-icon" width="77" height="24">
+              <use xlink:href="#icon-logo-mob"></use>
             </svg>
-          </a>
-        </li>
-        <li class="user-menu__item">
-          @@if (!context.basket) {
-            <a class="user-menu__link links links--black" href="basket.html">
-              <svg width="32" height="30">
-                <use xlink:href="#icon-basket"></use>
+          </span>
+        }
+
+        <ul class="user-menu">
+          <li class="user-menu__item user-menu__item--mobile">
+            <a class="user-menu__link links links--black">
+              <svg width="24" height="27">
+                <use xlink:href="#icon-auth"></use>
               </svg>
-              <span class="user-menu__count">4</span>
             </a>
-          }
-          @@if (context.basket) {
-            <a class="user-menu__link">
-              <svg width="32" height="30">
-                <use xlink:href="#icon-basket"></use>
+          </li>
+          <li class="user-menu__item">
+            <a class="user-menu__link user-menu__link-favorites links links--black">
+              <svg width="30" height="27">
+                <use xlink:href="#icon-favorites"></use>
               </svg>
-              <span class="user-menu__count">4</span>
             </a>
-          }
-        </li>
-      </ul>
+          </li>
+          <li class="user-menu__item">
+            @@if (!context.basket) {
+              <a class="user-menu__link user-menu__link-basket links links--black" href="basket.html">
+                <svg width="32" height="30">
+                  <use xlink:href="#icon-basket"></use>
+                </svg>
+                <span class="user-menu__count">4</span>
+              </a>
+            }
+            @@if (context.basket) {
+              <a class="user-menu__link user-menu__link-basket">
+                <svg width="32" height="30">
+                  <use xlink:href="#icon-basket"></use>
+                </svg>
+                <span class="user-menu__count">4</span>
+              </a>
+            }
+          </li>
+        </ul>
+      </div>
+
+
+      <nav class="main-nav is-closed">
+        <button class="button button--empty main-nav__toggle" type="button" aria-label="Переключатель отображения меню">
+          <svg class="main-nav__icon-open" width="28" height="22" aria-hidden="true">
+            <use xlink:href="#icon-burger"></use>
+          </svg>
+          <svg class="main-nav__icon-close" width="20" height="20" aria-hidden="true">
+            <use xlink:href="#icon-close"></use>
+          </svg>
+        </button>
+        <ul class="main-nav__list">
+          <li class="main-nav__item">
+            <a class="links"href="#">Страница 1</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="links" href="#">Страница 2</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="links" href="#">Страница 3</a>
+          </li>
+          <li class="main-nav__item main-nav__item--logo">
+            @@if (!context.index) {
+              <a class="header__logo header__logo--desctop" href="index.html" aria-label="Переход на главную">
+                <svg width="160" height="50">
+                  <use xlink:href="#icon-logo"></use>
+                </svg>
+              </a>
+            }
+            @@if (context.index) {
+              <span class="header__logo header__logo--desctop">
+                <svg width="160" height="50">
+                  <use xlink:href="#icon-logo"></use>
+                </svg>
+              </span>
+            }
+          </li>
+          <li class="main-nav__item">
+            <a class="links"href="#">Страница 4</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="links" href="#">Страница 5</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="links" href="#">Страница 6</a>
+          </li>
+        </ul>
+      </nav>
     </div>
-
-
-<!--
-    @@if (!context.index) {
-      <a class="header__logo" href="index.html" aria-label="Переход на главную">
-        <svg class="header__logo-icon" width="160" height="50">
-          <use xlink:href="#icon-logo"></use>
-        </svg>
-      </a>
-    }
-    @@if (context.index) {
-      <span class="header__logo">
-        <svg class="header__logo-icon" width="160" height="50">
-          <use xlink:href="#icon-logo"></use>
-        </svg>
-      </span>
-    } -->
-
-
-    <nav class="main-nav  main-nav--closed">
-      <button class="main-nav__toggle btn-reset" type="button" aria-label="Переключатель отображения меню" aria-pressed="false">
-        <svg width="20" height="20" aria-hidden="true">
-          <use xlink:href="#icon-burger"></use>
-        </svg>
-      </button>
-      <ul class="main-nav__list">
-        <li class="main-nav__item">
-          <a class="links"href="#">Страница 1</a>
-        </li>
-        <li class="main-nav__item">
-          <a class="links" href="#">Страница 2</a>
-        </li>
-        <li class="main-nav__item">
-          <a class="links" href="#">Страница 3</a>
-        </li>
-        <li class="main-nav__item main-nav__item--logo">
-          @@if (!context.index) {
-            <a class="header__logo" href="index.html" aria-label="Переход на главную">
-              <svg width="160" height="50">
-                <use xlink:href="#icon-logo"></use>
-              </svg>
-            </a>
-          }
-          @@if (context.index) {
-            <span class="header__logo">
-              <svg width="160" height="50">
-                <use xlink:href="#icon-logo"></use>
-              </svg>
-            </span>
-          }
-        </li>
-        <li class="main-nav__item">
-          <a class="links"href="#">Страница 4</a>
-        </li>
-        <li class="main-nav__item">
-          <a class="links" href="#">Страница 5</a>
-        </li>
-        <li class="main-nav__item">
-          <a class="links" href="#">Страница 6</a>
-        </li>
-      </ul>
-    </nav>
-
   </div>
 </header>

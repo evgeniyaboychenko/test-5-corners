@@ -20,7 +20,6 @@ const initMap = () => {
     $('#suggest').parent().removeClass('is-invalid-address');
     $('#notice').css('display', 'none');
 
-
     // const mapContainer = $('#map');
     const bounds = obj.properties.get('boundedBy');
     // Рассчитываем видимую область для текущего положения пользователя.
@@ -38,7 +37,25 @@ const initMap = () => {
     createMap(mapState, address);
     // Выводим сообщение под картой.
     $('#suggest').val(address);
-    console.log(address);
+    $('#suggest').text(address);
+
+    $('textarea').height(0);
+    $('textarea').height($('textarea').get(0).scrollHeight);
+
+    if ($(window).height() > 1023) {
+      if ($('textarea').height() > 27) {
+        $('textarea').parent().css('height', '66px');
+      } else {
+        $('textarea').parent().css('height', '45px');
+      }
+    } else {
+      if ($('textarea').height() > 27) {
+        $('textarea').parent().css('height', '66px');
+      } else {
+        $('textarea').parent().css('height', '45px');
+      }
+    }
+
     showMessage(address);
   };
 
@@ -46,7 +63,6 @@ const initMap = () => {
 
     $('#suggest').addClass('is-invalid-address');
     $('#suggest').parent().addClass('is-invalid-address');
-    // $('#suggest').parent().append('<label[for=' + $('#suggest').id + ']> Ошибкаааа <label/>');
     $('#notice').text(message);
     $('#notice').css('display', 'block');
     // Убираем метку
@@ -78,7 +94,6 @@ const initMap = () => {
   };
 
   const showMessage = (message) => {
-    // $('#suggest').val(message);
     $('#messageHeader').text('Данные получены:');
     $('#message').text(message);
   };
@@ -86,6 +101,7 @@ const initMap = () => {
   const geocode = () => {
     // Забираем запрос из поля ввода.
     const request = $('#suggest').val();
+    // $('#suggest').text(request);
     // Геокодируем введённые данные.
     ymaps.geocode(request).then(function (res) {
       const obj = res.geoObjects.get(0);
@@ -148,10 +164,6 @@ const initMap = () => {
 
     // При клике по кнопке запускаем верификацию введёных данных.
 
-    // const btn = document.querySelector('#button');
-    // btn.addEventListener('click', () => {
-    //   geocode();
-    // });
     $('#button').on('click', function (e) {
       geocode();
     });
@@ -161,10 +173,6 @@ const initMap = () => {
       $('#suggest').parent().removeClass('is-invalid-address');
       $('#notice').css('display', 'none');
     });
-
-    // $('#suggest').on('focusout', function (e) {
-    //   geocode();
-    // });
 
     $('#suggest').on('change', function (e) {
       geocode();

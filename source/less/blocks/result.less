@@ -1,0 +1,17 @@
+.result {
+  display: flex;
+  justify-content: space-between;
+
+  &--mobile {
+    display: none;
+    @media (max-width: @table-width) {
+      display: flex;
+    }
+  }
+
+  &--desctop {
+    @media (max-width: @table-width) {
+      display: none;
+    }
+  }
+}

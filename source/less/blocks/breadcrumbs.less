@@ -1,10 +1,14 @@
 .breadcrumbs {
   padding: 0;
   margin: 0;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   list-style: none;
 
   display: flex;
+
+  @media (max-width: @table-width) {
+    margin-bottom: 30px;
+  }
 }
 
 .breadcrumbs__item {
@@ -21,8 +25,6 @@
     color: @color-nobel;
   }
 }
-
-
 
 .breadcrumbs__item-current {
   margin-right: 0;

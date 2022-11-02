@@ -1,38 +1,40 @@
 const formValidate = () => {
-  const valideteForm = $('.basket__form').validate({
+  const validateForm = $('.basket__form').validate({
     rules: {
       address: {
         required: true,
-        // minlength: 2
       },
       name: {
         required: true,
-        // minlength: 2
+        minlength: 2,
+      },
+      phone: {
+        required: true,
+        phone: true,
       },
       email: {
         required: true,
         email: true,
-        // minlength: 5
       },
-
       selectValue: {
         required: true,
       },
 
     },
     messages: {
-      radio: 'This is a required field',
       address: {
         required: 'Ошибка ввода',
-        // minlength: 2
       },
       name: {
         required: 'Ошибка ввода',
-        minlength: 'Короткое имя',
+        minlength: 'Ошибка ввода. Короткое имя',
+      },
+      phone: {
+        required: 'Ошибка ввода',
+        phone: 'Ошибка ввода.',
       },
       email: {
         required: 'Ошибка ввода',
-        // minlength: "Поле должно быть более 5-ти символов",
         email: 'Неверный синтаксис email',
       },
       selectValue: {
@@ -40,79 +42,52 @@ const formValidate = () => {
       },
     },
 
-    // errorElement: "div",
-
     submitHandler: function(form) {
-      console.log($('input[name="packagingType"]').val());
-      const dataForm = $(".basket__form").serialize();
-      console.log(dataForm);
+      const $dataForm = $(".basket__form").serializeArray();
+      console.log($dataForm);
+      resetSelect();
       form.reset();
-      // $("#form").serialize()
-      // form.submit();
+      resetAddress();
+      resetFieldsLabel();
     },
 
-    // errorPlacement: function(error, element) {
-    //     var item = element.parents('.basket__fieldset');
-    //     item.append(error);
-    // },
+  highlight: function(element, errorClass, validClass) {
+    $(element).add($(element).parent()).addClass("is-invalid");
+  },
 
-    // success: function(label) {
-    //   label.addClass("valid").text("Ok!")
-    // },
+  unhighlight: function(element, errorClass) {
+    $(element).add($(element).parent()).removeClass("is-invalid");
+  },
 
-    highlight: function(element, errorClass, validClass) {
-      // console.log(element);
-      $(element).add($(element).parent()).addClass("is-invalid");
-      // $(element).addClass(errorClass).removeClass(validClass);
-      // $(element.form).find("label[for=" + element.id + "]")
-      //   .addClass(errorClass);
-    },
-
-    unhighlight: function(element, errorClass) {
-      $(element).add($(element).parent()).removeClass("is-invalid");
-    },
-
-    // element: 'form',
-    // errorClass: 'error',
-
-    //   showErrors: function(errorMap, errorList) {
-    //     $("#summary").html("Your form contains "
-    //       + this.numberOfInvalids()
-    //       + " errors, see details below.");
-    //     this.defaultShowErrors();
-    //   }
-
-    // myErrors: function(element) {
-    //   if(element.val() === '') {
-    //     console.log('oshibkii');
-    //   } else {
-    //     console.log('net oshibok');
-    //   };
-    // },
   });
 
-  // $.validator.addMethod("map", function (value, element, params) {
-  //   return (value) ? true : false;
-  // });
+  $.validator.addMethod('phone', function (value, element) {
+    if (/[^0-9()+ /-]/.test(value)) {
+      return false;
+    } else {
+      return true;
+    }
+  });
 
-  // $.validator.addClassRules({
-  //   selectValidation: {
-  //     required: true,
-  //   },
-  // });
+  $('input[name="packagingType"]').click(function () {
+    validateForm.element($('.basket__selected-value'));
+  });
 
-//   $('input[name="selectValue"]').addClass('flowerValidation').change(function(e) {
-//     $('form').validate().element($(e.target));
-// });
-// validateForm.submit();
+  function resetSelect() {
+    $('[data-button-select] .basket__select-title').text('Тип упаковки');
+    $('[data-button-select]').removeClass('is-selected');
+  }
 
-// var validator =  $('.basket__form').validate();
-// valideteForm.element($('.basket__selected-value'));
+  function resetAddress() {
+    $('#suggest').text('');
+  }
 
-$('input[name="packagingType"]').click(function (evt) {
-  valideteForm.element($('.basket__selected-value'));
-});
-
+  function resetFieldsLabel() {
+    const $formInputs = $('[data-input]');
+    $formInputs.each(function () {
+      $(this).parent().removeClass('is-fielld');
+    });
+  }
 };
 
 export {formValidate};

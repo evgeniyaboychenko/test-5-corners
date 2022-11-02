@@ -28,63 +28,51 @@
         </ul>
 
         <div class="basket">
-          <h1 class="title title--h1">Корзина</h1>
+          <h1 class="title title--h1 basket__title">Корзина</h1>
           <div class="basket__authorization">
             <span>Есть аккаунт?</span>
             <a class="links links--underline"  href="#">Войти</a>
           </div>
 
           <form method="post" autocomplete="off" class="basket__form">
-            <div id ="summary"></div>
             <div class="basket__form-wrapper">
               <fieldset class="basket__fieldset">
-                <!-- <div class="basket__input">
-                  <input type="text" id="suggest" name="address" id="address" required >
-                  <label class="basket__input-label" for="address" data-placeholder>Адрес</label>
-                </div>
-                <div class="basket__input-error" id="notice">Ошибка ввода</div> -->
-
                 <label class="basket__input-label">
-                  <input class="basket__input" type="text" id="suggest" name="address" required>
-                  <!-- <div id="suggest-error" class="error">Ошибка вводddа</div> -->
-                  <div class="basket__input-error error" id="notice">Ошибка ввода</div>
+                  <textarea class="basket__input" id="suggest" name="address" required data-input></textarea>
+                  <span class="basket__input-error error" id="notice">Ошибка ввода</span>
                   <span class="basket__input-placeholder" data-placeholder>Адрес</span>
                 </label>
-                <!-- <div class="basket__input-error" id="notice">Ошибка ввода</div> -->
               </fieldset>
 
-              <div class="basket__map" id="map"></div>
+              <div class="basket__map-wrapper">
+                <div class="basket__map" id="map"></div>
+                <div class="basket__result result result--desctop">Итог:
+                  <span>3790 руб.</span>
+                </div>
+              </div>
+
+              <fieldset class="basket__fieldset basket__fieldset-name">
+                <label class="basket__input-label">
+                  <input type="text" name="name" id="name" minlength="2" required data-input>
+                  <span class="basket__input-placeholder" data-placeholder> Ваше Имя</span>
+                </label>
+              </fieldset>
+
+
+              <fieldset class="basket__fieldset basket__fieldset-phone">
+                <label class="basket__input-label">
+                  <input type="tel" name="phone" id="phone" required data-input>
+                  <span class="basket__input-placeholder" data-placeholder>Ваш Телефон</span>
+                </label>
+              </fieldset>
 
               <fieldset class="basket__fieldset">
                 <label class="basket__input-label">
-                  <input type="text" name="name" id="name" minlength="2" required>
-                  <span class="basket__input-placeholder" data-placeholder> Ваше имя</span>
+                 <input type="email" name="email" id="email" required data-input>
+                 <span class="basket__input-placeholder" data-placeholder>Ваш Email</span>
                 </label>
               </fieldset>
-
-              <fieldset class="basket__fieldset">
-                <label class="basket__input-label">
-                  <input type="tel" name="phone" id="phone" required>
-                  <span class="basket__input-placeholder" data-placeholder>Ваш телефон</span>
-                </label>
-              </fieldset>
-
-              <fieldset class="basket__fieldset">
-                <label class="basket__input-label">
-                 <input type="email" name="email" id="email" required>
-                 <span class="basket__input-placeholder" data-placeholder>Ваш email</span>
-                </label>
-              </fieldset>
-              <!-- <button type="submit" id="button">Проверить</button> -->
-              <!-- <fieldset class="basket__fieldset">
-                <label>
-                  <input type="text" class="input" id="suggest" data-address required>
-                  <span class="custom-input__label"> Адрес </span>
-                </label>
-                <div class="input__error">Ошибка ввода</div>
-              </fieldset> -->
               <fieldset class="basket__fieldset basket__fieldset-select">
-                <!-- <input type="text" value="" name="select-type" class="basket__selected-type visually-hidden" required > -->
                 <button class="basket__select-button" data-button-select>
                   <span class="basket__select-title">Тип упаковки</span>
                   <span class="basket__select-icon">
@@ -93,85 +81,114 @@
                     </svg>
                   </span>
                 </button>
-                <!-- <label class="basket__input-label">
-                  <input type="text" value="" name="selectValue" class="basket__selected-value visually-hidden" required >
-                </label> -->
                 <span class="basket__input-placeholder" data-placeholder>Тип упаковки</span>
                 <input type="text" value="" name="selectValue" class="basket__selected-value visually-hidden" required >
                 <div class="basket__select" data-select>
-                  <input id="packagingType1" type="radio" value="no-packaging" name="packagingType"/>
+                  <input id="packagingType1" type="radio" value="no-packaging" name="packagingType">
                   <label class="basket__select-option" for="packagingType1">без упаковки</label>
-                  <input id="packagingType2" type="radio" value="standart" name="packagingType"/>
+                  <input id="packagingType2" type="radio" value="standart" name="packagingType">
                   <label class="basket__select-option" for="packagingType2">стандартная</label>
-                  <input id="packagingType3" type="radio" value="gift" name="packagingType"/>
+                  <input id="packagingType3" type="radio" value="gift" name="packagingType">
                   <label class="basket__select-option" for="packagingType3">подарочная</label>
                 </div>
-                <!-- <select id="select" name="type">
-                  <option>Тип упаковки</option>
-                  <option value="no-packaging">без упаковки</option>
-                  <option value="standart">стандартная</option>
-                  <option value="gift">подарочная</option>
-                </select> -->
-                <!-- <select class="select" name="language">
-                  <option disabled>Выбрать</option>
-                  <option value="HTML">HTML</option>
-                  <option value="JavaScript">JavaScript</option>
-                  <option value="PHP">PHP</option>
-              </select> -->
               </fieldset>
               <fieldset class="basket__fieldset">
                 <label class="basket__input-label">
-                  <input type="text" class="basket__input" name="comment">
+                  <input type="text" class="basket__input" name="comment" data-input>
                   <span class="basket__input-placeholder" data-placeholder>Введите комментарий</span>
                 </label>
               </fieldset>
 
-            </div>
-
-
-
-            <section class="products">
-              <h2 class="title title--h2">Выбранные товары:</h2>
+            <div class="basket__wrapper-products">
+            <section class="basket__products products">
+              <h2 class="title title--h2 products__title">Выбранные товары:</h2>
               <ul class="products__list">
                 <li class="products__item">
                   <div class="products__img">
                     <picture>
                       <source type="image/webp" srcset="img/content/product.webp 1x, img//producte@2x.webp 2x">
-                      <img class="promo__image" src="img/content/product.jpg" srcset="img/content/product@2x.jpg 2x" width="150" height="150" alt="Изображение  товара">
+                      <img src="img/content/product.jpg" srcset="img/content/product@2x.jpg 2x" width="150" height="150" alt="Изображение  товара">
                     </picture>
                   </div>
-                  <h3 class="title title--h3 products__title">Товар 1</h3>
+                  <h3 class="title title--h3 products__subtitle">Товар 1</h3>
                   <p class="products__description">Описание товара, которое может быть длинным</p>
-                  <div class="products__count">
-                    <button>-
+                  <div class="products__count counter">
+                    <button class="counter__button-minus" type="button" aria-label="Уменьшить количество">
+                      <svg width="16" height="2">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
                     </button>
-                    <span>1</span>
-                    <button>+
+                    <span class="counter__value">1</span>
+                    <button class="counter__button-plus" type="button" aria-label="Увеличить количество">
+                      <svg width="16" height="16">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
                     </button>
                   </div>
-                  <span class="products__price">1000p</span>
-                  <button class="products__btn-del links links--underline">Удалить</button>
+                  <span class="products__price">1090 руб.</span>
+                  <button class="products__btn-del links links--underline" type="button">Удалить</button>
+                </li>
+                <li class="products__item">
+                  <div class="products__img">
+                    <picture>
+                      <source type="image/webp" srcset="img/content/product.webp 1x, img//producte@2x.webp 2x">
+                      <img src="img/content/product.jpg" srcset="img/content/product@2x.jpg 2x" width="150" height="150" alt="Изображение  товара">
+                    </picture>
+                  </div>
+                  <h3 class="title title--h3 products__subtitle">Товар 2</h3>
+                  <p class="products__description">Описание товара, которое может быть очень-очень длинным</p>
+                  <div class="products__count counter">
+                    <button class="counter__button-minus" type="button" aria-label="Уменьшить количество">
+                      <svg width="16" height="2">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <span class="counter__value">1</span>
+                    <button class="counter__button-plus" type="button" aria-label="Увеличить количество">
+                      <svg width="16" height="16">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                    </button>
+                  </div>
+                  <span class="products__price">700 руб.</span>
+                  <button class="products__btn-del links links--underline" type="button">Удалить</button>
+                </li>
+                <li class="products__item">
+                  <div class="products__img">
+                    <picture>
+                      <source type="image/webp" srcset="img/content/product.webp 1x, img//producte@2x.webp 2x">
+                      <img src="img/content/product.jpg" srcset="img/content/product@2x.jpg 2x" width="150" height="150" alt="Изображение  товара">
+                    </picture>
+                  </div>
+                  <h3 class="title title--h3 products__subtitle">Товар 3</h3>
+                  <p class="products__description">Короткое описание товара</p>
+                  <div class="products__count counter">
+                    <button class="counter__button-minus" type="button" aria-label="Уменьшить количество">
+                      <svg width="16" height="2">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <span class="counter__value">2</span>
+                    <button class="counter__button-plus" type="button" aria-label="Увеличить количество">
+                      <svg width="16" height="16">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                    </button>
+                  </div>
+                  <span class="products__price">2000 руб.</span>
+                  <button class="products__btn-del links links--underline" type="button">Удалить</button>
                 </li>
               </ul>
+              <div class="products__result result result--mobile">Итог:
+                <span>3790 руб.</span>
+              </div>
             </section>
-            <button type="submit" class="button" href="#">Купить</button>
+            <button type="submit" class="button button--width100 button--padding-23-0">Купить</button>
+          </div>
+        </div>
           </form>
         </div>
       </div>
-
-
-
-      <div id="header">
-        <input type="text" id="suggestе" class="input" placeholder="Введите адрес">
-        <button type="submit" id="button">Проверить</button>
-    </div>
-    <!-- <p id="notice">Адрес не найден</p> -->
-    <!-- <div id="map"></div> -->
-    <div id="footer">
-        <div id="messageHeader"></div>
-        <div id="message"></div>
-    </div>
-    <!-- <div id="map"></div> -->
     </main>
 
     @@include("source/html/base/footer.html")
@@ -182,7 +199,5 @@
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>
   <script src="https://api-maps.yandex.ru/2.1/?apikey=577e5073-fd65-40de-9ae0-741804857cba&lang=ru_RU" type="text/javascript"></script>
-  <!-- <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=577e5073-fd65-40de-9ae0-741804857cba" type="text/javascript"></script> -->
-
 </body>
 </html>

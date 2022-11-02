@@ -7,6 +7,9 @@
   align-items: flex-end;
   margin-left: auto;
 
+  @media (max-width: @table-width) {
+    margin: 0;
+  }
 }
 
 .user-menu__item {
@@ -16,10 +19,39 @@
   &:last-child {
     margin-right: 0;
    }
+
+  &--mobile {
+    @media (max-width: @table-width) {
+      display: none;
+    }
+  }
+
+  @media (max-width: @table-width) {
+    margin-right: 11px;
+  }
 }
 
 .user-menu__link {
   display: flex;
+}
+
+.user-menu__link-basket {
+  @media (max-width: @table-width) {
+    svg {
+      width: 36px;
+      height: 25px;
+      margin-top: -2px;
+    }
+  }
+}
+
+.user-menu__link-favorites {
+  @media (max-width: @table-width) {
+    svg {
+      width: 25px;
+      height: 23px;
+    }
+  }
 }
 
 .user-menu__count {
@@ -36,5 +68,9 @@
   border-radius: 50%;
   font-size: 12px;
   line-height: 14px;
+
+  @media (max-width: @table-width) {
+    top: -4px;
+  }
 }
 

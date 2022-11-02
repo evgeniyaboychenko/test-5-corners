@@ -1,10 +1,23 @@
+.products__title {
+  margin-bottom: 30px;
+
+  @media (max-width: @table-width) {
+    margin-bottom: 33px;
+  }
+}
+
 .products__list {
   margin: 0;
+  margin-bottom: 23px;
   padding: 0;
   list-style: none;
 
   display: flex;
   flex-direction: column;
+
+  @media (max-width: @table-width) {
+    margin-bottom: 39px;
+  }
 }
 
 .products__item {
@@ -12,9 +25,9 @@
   grid-template: 'img title price'
                   'img description price'
                   'img count delete';
-  grid-template-columns: 150px 180px 100px;
-  // grid-column-gap: 20px 29px;
-  // grid-template-rows: min-content;
+  grid-template-columns: 150px minmax(150px, 1fr)  minmax(150px, 1fr);
+  grid-column-gap: 20px;
+  grid-template-rows: auto 1fr auto;
 
   margin-bottom: 50px;
   position: relative;
@@ -28,6 +41,10 @@
     width: 100%;
     height: 1px;
     background-color: @color-gainsboro;
+
+    @media (max-width: @table-width) {
+      margin-bottom: -15px;
+    }
   }
 
   &:last-child {
@@ -37,28 +54,107 @@
       content: none;
     }
   }
+
+  @media (max-width: @table-width) {
+    grid-template-columns:  minmax(80px, 1fr) minmax(50px, 1fr)  minmax(100px, 1fr);
+    justify-content: space-between;
+    grid-gap: normal;
+
+    margin-bottom: 32px;
+  }
 }
 
 .products__img {
   grid-area: img;
+
+  width: 150px;
+  height: 150px;
+
+  @media (max-width: @table-width) {
+    width: 80px;
+    height: 80px;
+  }
 }
 
-.products__title {
+.products__subtitle {
   grid-area: title;
 }
 
 .products__description {
   grid-area: description;
+
+  max-width: 150px;
+
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+  font-size: 16px;
+  line-height: 120%;
+
+  color: @color-nobel;
+
+  @media (max-width: @mobile-width) {
+    display: none;
+  }
 }
 
 .products__count {
   grid-area: count;
+  align-self: end;
+  justify-self: start;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 22px;
+
+  @media (max-width: @table-width) {
+    font-size: 16px;
+    line-height: 18px;
+  }
 }
 
 .products__price {
   grid-area: price;
+  align-self: start;
+  justify-self:end;
+
+  margin-right: 34px;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+
+  @media (max-width: @table-width) {
+    margin-right: 0;
+    font-size: 16px;
+    line-height: 18px;
+  }
 }
 
 .products__btn-del {
   grid-area: delete;
+  align-self: end;
+  justify-self: end;
+
+  margin-right: 29px;
+
+  font-size: 14px;
+  line-height: 16px;
+
+  @media (max-width: @table-width) {
+    padding: 0;
+    margin-right: 0;
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+.products__result {
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 30px;
+
+  @media (max-width: @table-width) {
+    margin-bottom: 23px;
+  }
 }
