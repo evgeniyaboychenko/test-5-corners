@@ -48,7 +48,7 @@ const formValidate = () => {
       formData.delete('selectValue');
 
       for (const [key, value] of formData) {
-        console.log(`${key}: ${value}\n`);
+        console.log(JSON.stringify(Object.fromEntries([...formData])));
       }
 
       resetSelect();
