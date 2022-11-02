@@ -46,10 +46,7 @@ const formValidate = () => {
       // const $dataForm = $(".basket__form").serializeArray();
       const formData = new FormData(form);
       formData.delete('selectValue');
-
-      for (const [key, value] of formData) {
-        console.log(JSON.stringify(Object.fromEntries([...formData])));
-      }
+      console.log(JSON.stringify(Object.fromEntries([...formData])));
 
       resetSelect();
       form.reset();
